@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MovieChecker-TypeScript/static/css/main.0833cb95.css",
+    "main.js": "/MovieChecker-TypeScript/static/js/main.5be3e90f.js",
+    "index.html": "/MovieChecker-TypeScript/index.html",
+    "main.0833cb95.css.map": "/MovieChecker-TypeScript/static/css/main.0833cb95.css.map",
+    "main.5be3e90f.js.map": "/MovieChecker-TypeScript/static/js/main.5be3e90f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0833cb95.css",
+    "static/js/main.5be3e90f.js"
+  ]
+}
