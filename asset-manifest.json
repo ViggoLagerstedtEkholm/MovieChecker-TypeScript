@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/MovieChecker-TypeScript/static/css/main.0833cb95.css",
-    "main.js": "/MovieChecker-TypeScript/static/js/main.5be3e90f.js",
+    "main.css": "/MovieChecker-TypeScript/static/css/main.0b0431a6.css",
+    "main.js": "/MovieChecker-TypeScript/static/js/main.37d6e68e.js",
     "index.html": "/MovieChecker-TypeScript/index.html",
-    "main.0833cb95.css.map": "/MovieChecker-TypeScript/static/css/main.0833cb95.css.map",
-    "main.5be3e90f.js.map": "/MovieChecker-TypeScript/static/js/main.5be3e90f.js.map"
+    "main.0b0431a6.css.map": "/MovieChecker-TypeScript/static/css/main.0b0431a6.css.map",
+    "main.37d6e68e.js.map": "/MovieChecker-TypeScript/static/js/main.37d6e68e.js.map"
   },
   "entrypoints": [
-    "static/css/main.0833cb95.css",
-    "static/js/main.5be3e90f.js"
+    "static/css/main.0b0431a6.css",
+    "static/js/main.37d6e68e.js"
   ]
 }
