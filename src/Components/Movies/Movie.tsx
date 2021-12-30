@@ -21,8 +21,8 @@ function Movie({movie}: Props){
                             {!movie.backdrop_path ? <h1>MISSING IMAGE</h1>: <Image src={path} fluid/>}
                         </Row>
                         <Row className="mt-3 mx-0">
-                            <Link to={'/movie/' + movie.id} className="btn btn-primary ">
-                                Test
+                            <Link to={'/movie/' + movie.id} className="btn btn-primary">
+                                Details
                             </Link>
                         </Row>
                     </Col>

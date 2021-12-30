@@ -64,26 +64,39 @@ function FilterOptions() {
                 <Row>
                     <Col className="text-center">
                         <h5>Average score: {averageRatingChange}</h5>
-                        <Slider startPoint={averageRating} defaultValue={averageRating} min={0} max={10} step={0.1} onAfterChange={(value) => applyAverageRating(value)} onChange={(value) => setAverageRatingChange(value)}/>
+                        <Slider startPoint={averageRating} defaultValue={averageRating} min={0} max={10} step={0.1} onAfterChange={(value) => applyAverageRating(value)}
+                                onChange={(value) => {
+                                    setAverageRatingChange(value);
+                                    goToPage(1);
+                                }}/>
                         <Form.Control size="sm" type="number" placeholder="Average score" className="mt-3" onChange={(e) => {
                             applyAverageRating(parseInt(e.target.value));
                             setAverageRatingChange(parseInt(e.target.value));
+                            goToPage(1);
                         }}/>
                     </Col>
                     <Col className="text-center">
                         <h5>Vote count: {new Intl.NumberFormat().format(voteCountChange)}</h5>
-                        <Slider startPoint={voteCount} defaultValue={voteCount} min={0} max={200000} step={100} onAfterChange={(value) => applyVoteCount(value)} onChange={(value) => setVoteCountChange(value)}/>
+                        <Slider startPoint={voteCount} defaultValue={voteCount} min={0} max={200000} step={100} onAfterChange={(value) => {
+                            applyVoteCount(value);
+                            goToPage(1);
+                        }} onChange={(value) => setVoteCountChange(value)}/>
                         <Form.Control size="sm" type="number" placeholder="Vote count" className="mt-3" onChange={(e) =>{
                             applyVoteCount(parseInt(e.target.value));
                             setVoteCountChange(parseInt(e.target.value));
+                            goToPage(1);
                         }}/>
                     </Col>
                     <Col className="text-center">
                         <h5>Results up to year - {yearChange}</h5>
-                        <Slider startPoint={year} defaultValue={year} min={new Date().getFullYear() - 150} max={new Date().getFullYear()} step={1} onAfterChange={(value) => applyYear(value)} onChange={(value) => setYearChange(value)}/>
+                        <Slider startPoint={year} defaultValue={year} min={new Date().getFullYear() - 150} max={new Date().getFullYear()} step={1} onAfterChange={(value) => {
+                            applyYear(value);
+                            goToPage(1);
+                        }} onChange={(value) => setYearChange(value)}/>
                         <Form.Control size="sm" type="number" placeholder="Year" className="mt-3" onChange={(e) =>{
                             applyYear(parseInt(e.target.value));
                             setYearChange(parseInt(e.target.value));
+                            goToPage(1);
                         }}/>
                     </Col>
                 </Row>
