@@ -1,15 +1,27 @@
 import {useFilterContext} from "../../../Context/InputValueContext";
-import {Card, Form, Row} from "react-bootstrap";
+import {Card, Col, Form, Row} from "react-bootstrap";
 import {selectOptions} from "../../Service/MovieAPI";
+import Slider from 'rc-slider';
+import {useState} from "react";
 
 function FilterOptions() {
     const {
         applySearch,
         applySelectedOption,
         goToPage,
+        applyAverageRating,
+        applyVoteCount,
+        applyYear,
         search,
         selectedOption,
+        averageRating,
+        voteCount,
+        year
     } = useFilterContext();
+
+    const[averageRatingChange, setAverageRatingChange] = useState(averageRating);
+    const[voteCountChange, setVoteCountChange] = useState(voteCount);
+    const[yearChange, setYearChange] = useState(year);
 
     function renderOptions() {
         return Array.from(selectOptions).map(([key, value], i) => {
@@ -47,6 +59,33 @@ function FilterOptions() {
                                           goToPage(1);
                                       }}/>
                     </Form.Group>
+                </Row>
+
+                <Row>
+                    <Col className="text-center">
+                        <h5>Average score: {averageRatingChange}</h5>
+                        <Slider startPoint={averageRating} defaultValue={averageRating} min={0} max={10} step={0.1} onAfterChange={(value) => applyAverageRating(value)} onChange={(value) => setAverageRatingChange(value)}/>
+                        <Form.Control size="sm" type="number" placeholder="Average score" className="mt-3" onChange={(e) => {
+                            applyAverageRating(parseInt(e.target.value));
+                            setAverageRatingChange(parseInt(e.target.value));
+                        }}/>
+                    </Col>
+                    <Col className="text-center">
+                        <h5>Vote count: {new Intl.NumberFormat().format(voteCountChange)}</h5>
+                        <Slider startPoint={voteCount} defaultValue={voteCount} min={0} max={200000} step={100} onAfterChange={(value) => applyVoteCount(value)} onChange={(value) => setVoteCountChange(value)}/>
+                        <Form.Control size="sm" type="number" placeholder="Vote count" className="mt-3" onChange={(e) =>{
+                            applyVoteCount(parseInt(e.target.value));
+                            setVoteCountChange(parseInt(e.target.value));
+                        }}/>
+                    </Col>
+                    <Col className="text-center">
+                        <h5>Results up to year - {yearChange}</h5>
+                        <Slider startPoint={year} defaultValue={year} min={new Date().getFullYear() - 150} max={new Date().getFullYear()} step={1} onAfterChange={(value) => applyYear(value)} onChange={(value) => setYearChange(value)}/>
+                        <Form.Control size="sm" type="number" placeholder="Year" className="mt-3" onChange={(e) =>{
+                            applyYear(parseInt(e.target.value));
+                            setYearChange(parseInt(e.target.value));
+                        }}/>
+                    </Col>
                 </Row>
             </Card.Body>
         </Card>

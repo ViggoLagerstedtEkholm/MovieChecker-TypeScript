@@ -8,7 +8,7 @@ import Loading from "../Loading";
 import TopPagination from "../Pagination/TopPagination";
 
 function FilterBox() {
-    const {selectedOption, page, search, applyPageCount, applyResultCount} = useFilterContext();
+    const {selectedOption, page, search, averageRating, voteCount, year, applyPageCount, applyResultCount} = useFilterContext();
     const [results, setResults] = useState<SearchData | null>(null);
 
     useEffect(() => {
@@ -25,10 +25,10 @@ function FilterBox() {
                 applyResultCount(response.total_results);
             }).catch(error => console.log(error));
         }
-    }, [selectedOption, page, search])
+    }, [selectedOption, page, search, averageRating, voteCount, year])
 
     const discoverAll = async () =>{
-        return FetchMovies(selectedOption, page);
+        return FetchMovies(selectedOption, page, averageRating, voteCount, year);
     }
 
     const searchByText = async () => {
@@ -37,7 +37,7 @@ function FilterBox() {
 
     return (
         <div>
-            <FilterConfigurationBox/>
+            <FilterConfigurationBox open={true}/>
             <hr/>
             <TopPagination/>
             {results ? <MovieList movies={results}/> : <Loading/>}

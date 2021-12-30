@@ -17,7 +17,7 @@ function PaginationBox() {
     }
 
     return (
-        <Card className="p-2">
+        <Card className="p-2 bg-secondary bg-opacity-10 text-white">
             <h2 className="text-center">{page} / {pageCount}</h2>
 
             <Row>

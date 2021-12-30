@@ -47,7 +47,7 @@ selectOptions.set('Vote Count Descending', 'vote_count.desc');
 selectOptions.set('Vote Count Ascending', 'vote_count.asc');
 
 //This method will be used to get all the movies filtered.
-export const FetchMovies = async (selectedOption: string, page: number): Promise<SearchData> => {
+export const FetchMovies = async (selectedOption: string, page: number, averageRating: number, voteCount: number, year: number): Promise<SearchData> => {
     let url = new URL("https://api.themoviedb.org/3/discover/movie?");
     url.searchParams.append("api_key", "0a2046e3e90682387123e7a46f0d486b");
     url.searchParams.append("language", "en-US");
@@ -55,8 +55,9 @@ export const FetchMovies = async (selectedOption: string, page: number): Promise
     url.searchParams.append("include_adult", "false");
     url.searchParams.append("sort_by", selectedOption);
     url.searchParams.append("page", String(page));
-    url.searchParams.append("vote_average.gte", '8');
-    url.searchParams.append("vote_count.gte", '5000');
+    url.searchParams.append("vote_average.gte", String(averageRating));
+    url.searchParams.append("vote_count.gte", String(voteCount));
+    url.searchParams.append("year", String(year));
 
     const promise = axios.get(url.toString());
     return promise.then(response => response.data).catch((error) => Promise.reject(error));

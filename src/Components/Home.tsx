@@ -13,6 +13,9 @@ function Home() {
 
     return (
         <FilterProvider startFilter={filter}>
+            <h2 className="text-white">MovieChecker</h2>
+            <p className="text-white">Your website for looking up movies.</p>
+            <p className="text-white">API Provider: <a href="https://www.themoviedb.org/">TMDB</a></p>
             <FilterBox/>
         </FilterProvider>
     )

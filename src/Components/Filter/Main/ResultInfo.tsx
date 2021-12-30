@@ -5,23 +5,43 @@ function ResultInfo(){
     const {resultCount, pageCount, page} = useFilterContext();
 
     return(
-        <Row className="bg-secondary p-4 bg-opacity-10 rounded text-center">
-            <Col>
-                Total Amount of Results - <span className="text-info">{resultCount}</span>
-            </Col>
+        <div>
+            <Row className="bg-secondary bg-opacity-10 rounded text-center small p-2 gap-2">
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    Total Amount of Results
+                </Col>
 
-            <Col>
-                Total Amount of Pages - <span className="text-info">{pageCount}</span>
-            </Col>
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    Total Amount of Pages
+                </Col>
 
-            <Col>
-                 Page - <span className="text-info">{page}</span>
-            </Col>
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    Page
+                </Col>
 
-            <Col>
-                Results Per Page - <span className="text-info">20</span>
-            </Col>
-        </Row>
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    Results Per Page
+                </Col>
+            </Row>
+
+            <Row className="bg-secondary bg-opacity-10 rounded text-center small">
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    <span className="text-info">{resultCount}</span>
+                </Col>
+
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    <span className="text-info">{pageCount}</span>
+                </Col>
+
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    <span className="text-info">{page}</span>
+                </Col>
+
+                <Col className="bg-secondary bg-opacity-25 p-1">
+                    <span className="text-info">20</span>
+                </Col>
+            </Row>
+        </div>
     )
 }
 

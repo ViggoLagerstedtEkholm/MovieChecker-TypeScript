@@ -10,7 +10,7 @@ interface Props{
 
 function MovieList({movies} : Props){
     return(
-        <Card className="p-2 my-2 bg-secondary p-4 bg-opacity-10 text-white">
+        <Card className="p-1 my-1 bg-secondary p-4 bg-opacity-10 text-white">
             <Card.Title>
                 <ResultInfo/>
             </Card.Title>

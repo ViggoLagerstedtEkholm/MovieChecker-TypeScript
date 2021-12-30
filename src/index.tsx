@@ -4,6 +4,7 @@ import App from './App';
 
 import 'bootstrap/dist/css/bootstrap.min.css'; //Styling
 import './CSS/style.css';
+import 'rc-slider/assets/index.css';
 
 ReactDOM.render(
   <React.StrictMode>
